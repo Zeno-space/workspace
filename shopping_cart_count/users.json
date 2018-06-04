@@ -1,0 +1,20 @@
+{
+    "huang": {
+        "password": "123",
+        "salary": 960,
+        "shopping_cart": {
+            "宝石": {
+                "price": 2000,
+                "count": 2
+            },
+            "鼠标": {
+                "price": 10,
+                "count": 2
+            },
+            "游艇": {
+                "price": 20,
+                "count": 1
+            }
+        }
+    }
+}
