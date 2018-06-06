@@ -68,12 +68,5 @@
         "phone": 13698424612,
         "dept": "Operation",
         "enroll_date": "2017‐07‐02"
-    },
-    "11": {
-        "name": "Alex Li",
-        "age": "25",
-        "phone": "134435344",
-        "dept": "IT",
-        "enroll_date": "2015‐10‐29"
     }
 }
