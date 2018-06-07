@@ -3,8 +3,9 @@ import json
 
 """实现了使用json文件为数据库的，增删改查功能，find、add、del、update
 
-系统关键字：find、add、del、update、from staff_table、set、where暂时仅支持小写字母
-单文件、无异常，后续扩展空间比较大。特别在分词这块。
+1、系统关键字：find、add、del、update、from staff_table、set、where暂时仅支持小写字母；
+2、数据内容区分大小写；
+3、单文件、无异常，后续扩展空间比较大。特别在分词这块。
 
 函数：
     数据库函数：
@@ -141,8 +142,12 @@ def staff_del(id_set):
     for id in id_set:
         del staff_table[id]
 
-    id_str_list = [str(id) for id in id_set]
-    push_message(len(id_set), ','.join(id_str_list) + ' 号员工信息删除成功')
+        id_str_list = [str(id) for id in id_set]
+        if id_str_list:
+            push_message(len(id_set), ','.join(id_str_list) + ' 号员工信息删除成功')
+        else:
+            push_message(0, '无删除条目')
+    
     save_db()
 
 
@@ -161,7 +166,7 @@ def staff_update(id_set, info_dict):
 
         id_str_list = [str(id) for id in id_set]
         if id_str_list:
-            push_message(0, ','.join(id_str_list) + ' 号员工信息已修改')
+            push_message(len(id_set), ','.join(id_str_list) + ' 号员工信息已修改')
         else:
             push_message(0, '修改结果空')
         save_db()
@@ -284,7 +289,7 @@ def split_cmd(cmd):
         return id_set
 
     def split_cmp(cmp_str):
-        operator = ['=', '>', '<', '>=', '<=']
+        operator = ['=', '>', '<', '>=', '<=', 'like']
         for op in operator:
             if op in cmp_str:
                 key, value = cmp_str.split(op)
@@ -336,7 +341,7 @@ if __name__ == '__main__':
             "3、del: 例 del from staff where id=3",
             "4、update: 例 update staff_table set dept='Market' where dept = 'IT'",
             "5、init：还原所有实验数据", "6、q：退出程序",sep='\n')
-        cmd = input('>>>')
+        cmd = input('\n>>>')
         if not cmd:
             continue
         split_cmd(cmd)

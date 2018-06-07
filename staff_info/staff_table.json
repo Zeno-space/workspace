@@ -3,7 +3,7 @@
         "name": "Alex Li",
         "age": 22,
         "phone": 13651054608,
-        "dept": "Market",
+        "dept": "IT",
         "enroll_date": "2013‐04‐01"
     },
     "2": {
@@ -12,6 +12,13 @@
         "phone": 13451024608,
         "dept": "HR",
         "enroll_date": "2015‐01‐07"
+    },
+    "3": {
+        "name": "Rain Wang",
+        "age": 21,
+        "phone": 13451054608,
+        "dept": "IT",
+        "enroll_date": "2017‐04‐01"
     },
     "4": {
         "name": "Mack Qiao",
@@ -24,7 +31,7 @@
         "name": "Rachel Chen",
         "age": 23,
         "phone": 13351024606,
-        "dept": "Market",
+        "dept": "IT",
         "enroll_date": "2013‐03‐16"
     },
     "6": {
@@ -52,7 +59,7 @@
         "name": "Shit Wen",
         "age": 20,
         "phone": 13351024602,
-        "dept": "Market",
+        "dept": "IT",
         "enroll_date": "2017‐07‐03"
     },
     "10": {
@@ -61,12 +68,5 @@
         "phone": 13698424612,
         "dept": "Operation",
         "enroll_date": "2017‐07‐02"
-    },
-    "11": {
-        "name": "Alex Li",
-        "age": "25",
-        "phone": "134435344",
-        "dept": "IT",
-        "enroll_date": "2015‐10‐29"
     }
 }
