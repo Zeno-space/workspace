@@ -1,0 +1,9 @@
+tarfile，打包不压缩，注意修改arcname，否则归档整个目录
+zipfile 打包需要自行遍历全部文件、目录，否则就压缩一层
+
+
+pickle == json -->    shelve(修改需要write_back=true)
+
+etree,iter全文档遍历，findall返回第一级的列表，find返回一个
+
+logging filter handler formatter
