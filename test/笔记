@@ -4,6 +4,8 @@ zipfile 打包需要自行遍历全部文件、目录，否则就压缩一层
 
 pickle == json -->    shelve(修改需要write_back=true)
 
+
 etree,iter全文档遍历，findall返回第一级的列表，find返回一个
+
 
 logging filter handler formatter
