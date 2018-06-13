@@ -13,5 +13,6 @@ build
 
 # vscode
 .vscode/*
+ATM/.vscode/*
 
 # My configurations:
