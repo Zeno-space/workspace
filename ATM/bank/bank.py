@@ -5,10 +5,11 @@ from core.logger import debug_log
 #0:'用户名不存在',1：'密码错误'
 AUTH_ERROR = {
     0:'用户名不存在',
-    1：'密码错误'
+    1:'密码错误'
 }
 bank_db = JsonDb(BANK_DB_PATH,'username')
 
+user_data = {}
 """
 'username': None,
 'password':None,
@@ -16,7 +17,6 @@ bank_db = JsonDb(BANK_DB_PATH,'username')
 'balance':0,
 'credit limit':0
 """
-user_data = {}
 
 def authenticate():
 
@@ -39,16 +39,15 @@ def login(func):
     
     def inner(*args, **kwargs):
         global user_data
-        if user_data:
+        while user_data:
             result = authenticate()
-            if result in AUTH_ERROR.keys():
-
-
+            debug_log.error(AUTH_ERROR[result])
+        else:
+            user_data = result
         return func(*args, **kwargs)
     return inner
 
-def register(username, password):
-    # 陌生账号，提示是否注册。
+def registe(username, password, balance):
     # username = input('用户名：')
     # password = input('密码：')
     # balance = int(input('请输入您的预存金额：'))
@@ -59,7 +58,26 @@ def register(username, password):
     user_data['status'] = 1
     user_data['balance'] = balance
     user_data['credit limit'] = 15000
-    bang_db.add(user)
+    bank_db.add(user_data)
 
     return True
+
+@login
+def show_account():
+    pass
+
+def consume(goods, price, number):
+    pass
+
+def withdraw(amount):
+    pass
+
+def repay(amount):
+    pass
+
+def deposit(amount):
+    pass
+
+def transfer(amount, user):
+    pass
 

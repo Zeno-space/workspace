@@ -16,5 +16,10 @@
                 "count": 1
             }
         }
+    },
+    "zhang": {
+        "password": "123",
+        "salary": 100000,
+        "shopping_cart": {}
     }
 }
