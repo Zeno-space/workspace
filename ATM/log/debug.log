@@ -488,3 +488,279 @@
 	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
 2018-06-22 02:06:19,506 - bank - authenticate - 38 : 
 	账户已被冻结
+2018-06-22 02:41:07,872 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:41:15,108 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:41:15,109 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:43:14,343 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:43:17,700 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:43:17,701 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:43:35,162 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:44:17,435 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:44:21,828 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:44:21,829 - manage - login - 26 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 02:44:21,829 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:44:42,292 - manage - run - 104 : 
+	------------------------------
+2018-06-22 02:44:49,084 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:52:01,274 - manage - run - 107 : 
+	------------------------------
+2018-06-22 02:52:05,656 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:52:05,656 - manage - login - 26 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 02:52:05,657 - manage - run - 107 : 
+	------------------------------
+2018-06-22 02:53:25,355 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:53:28,641 - bank - authenticate - 32 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:53:28,641 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:55:46,412 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:56:12,278 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:56:31,681 - manage - run - 103 : 
+	------------------------------
+2018-06-22 02:56:36,245 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:56:36,245 - bank - inner - 57 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 02:56:36,246 - bank - inner - 60 : 
+	authenticate()'s result:{}
+2018-06-22 02:58:05,504 - manage - run - 107 : 
+	------------------------------
+2018-06-22 02:58:08,794 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 02:58:08,794 - bank - inner - 57 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 02:58:08,794 - bank - inner - 60 : 
+	authenticate()'s result:{}
+2018-06-22 03:00:58,495 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:01:04,412 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 03:01:04,412 - bank - inner - 56 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 03:01:04,412 - bank - inner - 59 : 
+	authenticate()'s result:{}
+2018-06-22 03:26:59,701 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:27:43,159 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 03:27:43,159 - bank - inner - 60 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 03:27:43,160 - bank - inner - 63 : 
+	authenticate()'s result:{}
+2018-06-22 03:29:12,623 - json_db - add - 75 : 
+	{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 10000, 'credit limit': 15000}
+2018-06-22 03:29:12,625 - bank - inner - 63 : 
+	authenticate()'s result:
+2018-06-22 03:31:13,210 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:31:28,021 - json_db - add - 75 : 
+	{'username': 'li', 'password': '123', 'status': 3, 'balance': 2000, 'credit limit': 15000}
+2018-06-22 03:31:28,024 - bank - inner - 64 : 
+	authenticate()'s result:
+2018-06-22 03:35:32,197 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:35:46,627 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 20000, 'credit limit': 15000}}
+2018-06-22 03:35:46,627 - bank - inner - 62 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 03:35:46,628 - bank - inner - 65 : 
+	authenticate()'s result:{}
+2018-06-22 03:35:57,605 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:07,883 - json_db - add - 75 : 
+	{'username': 'huang', 'password': '123', 'status': 3, 'balance': 10000, 'credit limit': 15000}
+2018-06-22 03:36:07,885 - bank - inner - 62 : 
+	
+2018-06-22 03:36:07,886 - bank - inner - 65 : 
+	authenticate()'s result:{'username': 'huang', 'password': '123', 'status': 3, 'balance': 10000, 'credit limit': 15000}
+2018-06-22 03:36:07,887 - bank - show_account - 95 : 
+	show_account()'s result:{'username': 'huang', 'password': '123', 'status': 3, 'balance': 10000, 'credit limit': 15000}
+2018-06-22 03:36:07,888 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:16,789 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:18,109 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:28,517 - json_db - add - 71 : 
+	{'username': 'huang', 'password': '1', 'status': 3, 'balance': 11111, 'credit limit': 15000}内的“huang”已存在
+2018-06-22 03:36:28,518 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:46,194 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:36:51,048 - json_db - add - 71 : 
+	{'username': 'huang', 'password': '1', 'status': 3, 'balance': 102321, 'credit limit': 15000}内的“huang”已存在
+2018-06-22 03:36:51,049 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:38:27,459 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:38:29,876 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:38:35,092 - json_db - add - 71 : 
+	“username : huang”已存在
+2018-06-22 03:38:35,093 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:39:20,965 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:39:22,882 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:39:32,985 - json_db - add - 71 : 
+	“username : huang”已存在
+2018-06-22 03:39:32,986 - manage - run - 108 : 
+	------------------------------
+2018-06-22 03:42:35,652 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:42:43,113 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:42:48,470 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 3, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:42:48,472 - bank - inner - 61 : 
+	huang 密码错误,剩余次数2
+2018-06-22 03:42:48,474 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:42:52,072 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 2, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:42:52,074 - bank - inner - 61 : 
+	huang 密码错误,剩余次数1
+2018-06-22 03:42:52,076 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:42:54,462 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 1, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:42:54,464 - bank - inner - 61 : 
+	huang 密码错误,剩余次数0
+2018-06-22 03:42:54,465 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:42:59,008 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:42:59,008 - bank - inner - 61 : 
+	huang 账户已被冻结,剩余次数0
+2018-06-22 03:42:59,008 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:43:09,528 - json_db - add - 75 : 
+	{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:43:09,530 - bank - inner - 61 : 
+	
+2018-06-22 03:43:09,531 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:43:09,532 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:43:09,532 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:44:44,206 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:44:46,200 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:44:50,504 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:44:50,504 - bank - inner - 61 : 
+	huang 账户已被冻结,登录其他账户或输入新用户名注册,剩余次数0
+2018-06-22 03:44:50,504 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:45:14,844 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 03:45:14,847 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:45:14,848 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:45:14,848 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:46:23,344 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:46:25,480 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:46:30,432 - json_db - add - 71 : 
+	“username : huang”已存在
+2018-06-22 03:46:30,432 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:46:37,438 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:46:37,439 - bank - inner - 61 : 
+	huang 账户已被冻结,登录其他账户或输入新用户名注册
+2018-06-22 03:46:37,439 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:46:40,591 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 03:46:40,593 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:46:40,594 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:46:40,595 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:49:57,347 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:04,756 - json_db - add - 71 : 
+	“username : huang”已存在
+2018-06-22 03:50:04,757 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:14,238 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'1': {'username': 'huang', 'password': '123', 'status': 0, 'balance': 10000, 'credit limit': 15000}}
+2018-06-22 03:50:14,239 - bank - inner - 61 : 
+	huang 账户已被冻结,登录其他账户或输入新用户名注册
+2018-06-22 03:50:14,240 - bank - inner - 64 : 
+	authenticate()'s result:{}
+2018-06-22 03:50:20,287 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 03:50:20,289 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:50:20,290 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:50:20,291 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:31,312 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:33,398 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:35,077 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:36,293 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:50:37,568 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:55:06,116 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:55:13,810 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 03:55:13,812 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:55:13,814 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:55:13,814 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:55:15,834 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:55:17,392 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:55:18,420 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:56:45,232 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:56:49,000 - bank - authenticate - 33 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 03:56:49,002 - bank - inner - 64 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:56:49,003 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:56:49,004 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:56:49,987 - manage - run - 111 : 
+	------------------------------
+2018-06-22 03:56:59,690 - bank - show_account - 96 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 03:56:59,693 - manage - run - 111 : 
+	------------------------------

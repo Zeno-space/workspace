@@ -19,3 +19,7 @@ shopping_mall使用bank的login
 2、每个应用中，如bank、shopping_mall文件夹中实现接口封装；
 3、core中实现共用的代码，如日志，数据库的代码接口；
 4、manage.py实现的是菜单列表与应用接口返回内容的的展示。
+
+cmd = input('是否注册该账户' + '1、是\n' + '2、否\n' + '>>> ').strip()
+                if cmd in ('1', '是', 'y', 'yes'):  # 注册新用户
+                    registes

@@ -68,7 +68,7 @@ class JsonDb(object):
 
         for col in unique_tmp:
             if record.get(col) and record[col] in unique_tmp[col]:
-                debug_log.error('%s内的“%s”已存在' % (record, record[col]))
+                debug_log.error('“%s : %s”已存在' % (col, record[col]))
                 return None
 
         data[id] = record
