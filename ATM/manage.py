@@ -28,7 +28,6 @@ def login():
         func()
         return True
     else:
-        print(1)
         return False
 
 

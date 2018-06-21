@@ -764,3 +764,31 @@
 	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
 2018-06-22 03:56:59,693 - manage - run - 111 : 
 	------------------------------
+2018-06-22 04:16:32,489 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:16:36,261 - bank - authenticate - 36 : 
+	bank_db.select(id)'s result:{'2': {'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}}
+2018-06-22 04:16:36,263 - bank - inner - 67 : 
+	authenticate()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 04:16:36,265 - bank - show_account - 100 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 04:16:36,265 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:16:37,315 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:16:38,105 - bank - show_account - 100 : 
+	show_account()'s result:{'username': 'zhang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 04:16:38,107 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:17:19,739 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:17:25,491 - json_db - add - 75 : 
+	{'username': 'huang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000}
+2018-06-22 04:17:25,493 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:17:28,758 - manage - run - 111 : 
+	------------------------------
+2018-06-22 04:17:29,461 - bank - show_account - 100 : 
+	show_account()'s result:{'username': 'huang', 'password': '123', 'status': 3, 'balance': 2312312, 'credit limit': 15000, 'id': '1'}
+2018-06-22 04:17:29,482 - manage - run - 111 : 
+	------------------------------

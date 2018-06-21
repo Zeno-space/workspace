@@ -2,13 +2,6 @@
     "1": {
         "username": "huang",
         "password": "123",
-        "status": 0,
-        "balance": 10000,
-        "credit limit": 15000
-    },
-    "2": {
-        "username": "zhang",
-        "password": "123",
         "status": 3,
         "balance": 2312312,
         "credit limit": 15000

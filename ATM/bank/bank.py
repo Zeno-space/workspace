@@ -6,12 +6,11 @@ from core.logger import debug_log
 
 bank_db = JsonDb(BANK_DB_PATH, ['username'])
 
-ERROR_CODE = {
-    1: '账户已被冻结',
-    2: '用户名不存在',
-    3: '密码错误',
-}
+ERROR_CODE = {1: '账户已被冻结', 2: '用户名不存在', 3: '密码错误', 4: '信用卡额度不足'}
 
+SERVICE_CHARGE = 0.05  # 手续费
+
+id = ''
 user_data = {}
 """
 'username': None,
@@ -48,7 +47,7 @@ def authenticate():
         if cmd in ('1', '是', 'y', 'yes'):  # 注册新用户
             balance = int(input('请输入您的预存金额：'))
             registe(username, password, balance)
-         
+
         return 2, ''
 
 
@@ -79,8 +78,9 @@ def registe(username, password, balance):
     new_user_data['balance'] = balance
     new_user_data['credit limit'] = 15000
 
-    code = bank_db.add(new_user_data)
-    if code:
+    id = bank_db.add(new_user_data)
+    if id:
+        new_user_data['id'] = id
         user_data = new_user_data
         return True
     else:
@@ -90,7 +90,7 @@ def registe(username, password, balance):
 @login
 def show_account():
     """ 账户信息 """
-    global result
+    global user_data
     from copy import deepcopy
     result = deepcopy(user_data)
     debug_log.debug("show_account()'s result:%s" % result)
@@ -102,28 +102,93 @@ def show_account():
 @login
 def consume(goods, price, number):
     """ 信用卡消费 """
-    pass
+    global user_data
+    id = user_data['id']
+
+    amount = price * number  # 计算需扣除的金额
+    if amount <= user_data['credit limit']:
+        user_data['credit limit'] -= amount
+
+        # 保存变动
+        bank_db.update(id, {'credit limit': user_data['credit limit']})
+        return True
+    else:
+        return 4, "%s信用卡额度不足（剩%s，需%s），请先还款" % (
+            user_data['username'], user_data['credit limit'], amount)
 
 
 @login
 def withdraw(amount):
     """ 信用卡提现 """
-    pass
+    global user_data
+    id = user_data['id']
+
+    amount = amount * (1 + SERVICE_CHARGE)  # 计算需扣除的金额
+    if amount <= user_data['credit limit']:
+        user_data['credit limit'] -= amount
+        user_data['balance'] += amount  # 提现至储蓄卡余额
+
+        # 保存变动
+        bank_db.update(id, {'credit limit': user_data['credit limit']})
+        bank_db.update(id, {'balance': user_data['balance']})
+        return True
+    else:
+        return 4, "%s信用卡额度不足（剩%s，需%s），请先还款" % (
+            user_data['username'], user_data['credit limit'], amount)
 
 
 @login
 def repay(amount):
     """ 信用卡还款 """
-    pass
+    global user_data
+    id = user_data['id']
+
+    balance = user_data['balance']
+    if amount <= balance:
+        if amount + balance < 15000:
+
+            # 储蓄卡额度补充到信用卡额度中
+            user_data['credit limit'] += amount
+            user_data['balance'] -= amount
+
+            # 保存变动
+            bank_db.update(id, {'credit limit': user_data['credit limit']})
+            bank_db.update(id, {'balance': user_data['balance']})
+            return True
+        else:
+            return 5, "%s还款金额超过信用卡账单（还：%s，仅需：%s）" % (
+                user_data['username'], amount,
+                15000 - user_data['credit limit'])
+    else:
+        return 4, "%s储蓄卡额度不足（剩%s，需%s），请先存款" % (user_data['username'],
+                                               user_data['balance'], amount)
 
 
 @login
 def deposit(amount):
     """ 储蓄卡存款 """
-    pass
+    global user_data
+    id = user_data['id']
+
+    user_data['balance'] += amount  # 存款至储蓄卡余额
+    bank_db.update(id, {'balance': user_data['balance']})  # 保存变动
 
 
 @login
-def transfer(amount, user):
+def transfer(amount, username):
     """ 储蓄卡转账 """
-    pass
+    global user_data
+    id = user_data['id']
+
+    balance = user_data['balance']
+    if amount <= balance:
+        id_set = bank_db.where(('username', username))
+        if id_set:
+            peer_id = id_set.pop()
+            user_data['balance'] -= amount  # 减少自己的储蓄卡余额
+
+            peer_balance = bank_db.select(peer_id)['balance']
+
+            # 保存变动
+            bank_db.update(id, {'balance': user_data['balance']})
+            bank_db.update(peer_id, {'balance': peer_balance + amount})
