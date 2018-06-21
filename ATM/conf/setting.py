@@ -19,7 +19,7 @@ LOG_LEVEL = {
     },
     'debug.log': {
         'file': logging.DEBUG,
-        'screan': logging.DEBUG
+        'screan': logging.ERROR
     }
 }
 

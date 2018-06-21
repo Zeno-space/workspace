@@ -23,8 +23,8 @@ class JsonDb(object):
             for col in unique:
                 #建立需要列值唯一的列索引
                 col_index = []
-                for key in data:
-                    col_index.append(data[key][col])
+                for id in data:
+                    col_index.append(data[id][col])
                 self._unique_tmp[col] = col_index
 
     def load_db(self):
@@ -72,6 +72,7 @@ class JsonDb(object):
                 return None
 
         data[id] = record
+        debug_log.debug(record)
         self.save_db()
         return id
 
@@ -116,13 +117,12 @@ class JsonDb(object):
             if not colunms:
                 colunms = data[record_id].keys()
             for col in colunms:
-                if data[record_id].get(col):
+                if data[record_id].get(col) is not None:
                     result[record_id][col] = data[record_id][col]
                 else:
                     debug_log.error('请求的列“%s”不存在' % col)
         else:
             debug_log.error('ID:%s不存在' % record_id)
-
         return result
 
     def where(self, condition, operator='='):

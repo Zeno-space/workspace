@@ -11,4 +11,11 @@ API
 
 两套账户
 
-tab
+tabulate
+
+shopping_mall使用bank的login
+
+1、db和log，存放具体的数据库文件和日志文件；
+2、每个应用中，如bank、shopping_mall文件夹中实现接口封装；
+3、core中实现共用的代码，如日志，数据库的代码接口；
+4、manage.py实现的是菜单列表与应用接口返回内容的的展示。

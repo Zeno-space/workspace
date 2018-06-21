@@ -10,7 +10,7 @@ def logger(log_name):
     logger.setLevel(setting.LOG_LEVEL['base_level'])
 
     if log_name == 'debug.log':
-        ch_formatter = logging.Formatter('%(module)s - %(funcName)s - %(lineno)d : \n\t%(message)s')
+        ch_formatter = logging.Formatter('    \n\t%(message)s')
         fh_formatter = logging.Formatter('%(asctime)s - %(module)s - %(funcName)s - %(lineno)d : \n\t%(message)s')
     else:
         ch_formatter = logging.Formatter('%(asctime)s : %(message)s')
