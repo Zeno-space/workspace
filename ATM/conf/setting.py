@@ -26,5 +26,5 @@ LOG_LEVEL = {
 #---------------bank config-----------------
 BANK_DB_PATH = os.path.join(DB_PATH, 'bank_db.json')
 
-#------------shopping_cart config-----------
-SC_DB_PATH = os.path.join(DB_PATH, 'sc_db.json')
+#------------shopping_mall config-----------
+SM_DB_PATH = os.path.join(DB_PATH, 'sm_db.json')

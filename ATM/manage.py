@@ -2,6 +2,7 @@ from conf.setting import BANK_DB_PATH
 from core.logger import debug_log
 from core.json_db import JsonDb
 from bank import bank
+from shopping_mall import shopping_mall
 
 # from shopping_mall import shopping_mall
 
@@ -31,6 +32,11 @@ def login():
         return False
 
 
+def logout():
+    bank.logout()
+    return False
+
+
 def show_account():
     result = bank.show_account()
     print()
@@ -40,26 +46,49 @@ def show_account():
 
 
 def withdraw():
-    return True
+    amount = input("请输入你需要提现的金额（5%手续费）:\n>>> ")
+    if amount.isnumeric():
+        bank.withdraw(int(amount))
+    return False
 
 
 def repay():
-    return True
+    amount = input("请输入你需要还款的金额:\n>>> ")
+    if amount.isnumeric():
+        bank.repay(int(amount))
+    return False
 
 
 def deposit():
-    return True
+    amount = input("请输入你需要存款的金额:\n>>> ")
+    if amount.isnumeric():
+        bank.deposit(int(amount))
+    return False
 
 
 def transfer():
-    return True
+    amount = input("请输入你需要转账的金额:\n>>> ")
+    username = input("请输入你需要存入的账户:\n>>> ")
+    if amount.isnumeric():
+        bank.transfer(int(amount), username)
+    return False
 
 
-def goods():
+def shopping():
+    shopping_mall.shopping(bank.user_data['credit limit'])
     return True
 
 
 def cart():
+    shopping_cart = shopping_mall.shopping_cart
+    # 购物记录
+    print("-------你已购买以下商品-------\n")
+    print("品名      价格    数量\n")
+    for product in shopping_cart:
+        print("%-6s  %-4s    %-4d" % (product, shopping_cart[product]['price'],
+                                      shopping_cart[product]['count']))
+    print("总价值为：%s"% shopping_mall.total_value)
+
     return True
 
 
@@ -67,22 +96,18 @@ def pay():
     return True
 
 
-def comsume_log():
-    return True
-
-
 mapping = {
     'registe': registe,
     'login': login,
+    'logout': logout,
     'account_info': show_account,
     'withdraw': withdraw,
     'repay': repay,
     'deposit': deposit,
     'transfer': transfer,
-    'goods': goods,
+    'shopping_mall': shopping,
     'cart': cart,
     'pay': pay,
-    'comsume_log': comsume_log
 }
 menu_logged_in = {
     'bank': {
@@ -93,15 +118,17 @@ menu_logged_in = {
         'transfer': {},
     },
     'shopping_mall': {
-        'goods': {
-            'cart': {
-                'pay': {}
-            },
-            'comsume_log': {}
-        }
+        'cart': {
+            'pay': {}
+        },
+        'comsume_log': {}
     }
 }
-menu_main = {'registe': menu_logged_in, 'login': menu_logged_in}
+menu_main = {
+    'registe': menu_logged_in,
+    'login': menu_logged_in,
+    'logout': menu_logged_in
+}
 
 
 def run(menu):
@@ -123,7 +150,7 @@ def run(menu):
             if not func_str in mapping or mapping[func_str]():
                 run(menu[func_str])
             else:
-                continue 
+                continue
         elif cmd in ('退出', 'quit', 'q'):
             exit(0)
         elif cmd in ('返回', 'back', 'b'):
