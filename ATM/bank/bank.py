@@ -1,6 +1,6 @@
 from core.json_db import JsonDb
 from conf.setting import BANK_DB_PATH
-from core.logger import debug_log, operation_log
+from core.logger import debug_log, operation_log, consumption_log
 
 #0:'用户名不存在',1：'密码错误'
 
@@ -76,8 +76,11 @@ def login(func):
 
 def logout():
     global user_data
+
+    username = user_data['username']
     user_data = {}
-    operation_log.info("%s已退出登录！" % user_data['username'])
+    operation_log.info("%s已退出登录！" % username)
+
     return True
 
 
@@ -121,17 +124,20 @@ def consume(goods, price, number):
     id = user_data['id']
 
     amount = price * number  # 计算需扣除的金额
-    if amount <= user_data['credit limit']:
-        user_data['credit limit'] -= amount
+    credit_limit = user_data['credit limit']
+    if amount <= credit_limit:
+        user_data['credit limit'] = round(credit_limit - amount, 2)
 
         # 保存变动
         bank_db.update(id, {'credit limit': user_data['credit limit']})
-        operation_log.info(
-            "%s成功购买了：%s,消费%s！" % (user_data['username'], goods, amount))
+        consumption_log.info("%s成功购买了：%s：数量：%s,消费%s！" %
+                             (user_data['username'], goods, number, amount))
+        return True
     else:
         operation_log.info(
             "%s信用卡额度不足（剩%s，需%s），请先还款" % (user_data['username'],
                                          user_data['credit limit'], amount))
+        return False
 
 
 @login
@@ -149,9 +155,8 @@ def withdraw(amount):
         # 保存变动
         bank_db.update(id, {'credit limit': user_data['credit limit']})
         bank_db.update(id, {'balance': user_data['balance']})
-        operation_log.info(
-            "%s提现：%s，当前额度为：%s" % (user_data['username'], amount,
-                                  user_data['credit limit']))
+        operation_log.info("%s提现：%s，当前额度为：%s" % (user_data['username'], amount,
+                                                 user_data['credit limit']))
     else:
         operation_log.info(
             "%s信用卡额度不足（剩%s，需%s），请先还款" % (user_data['username'],
@@ -181,8 +186,8 @@ def repay(amount):
                                          user_data['credit limit']))
         else:
             operation_log.info("%s还款金额超过信用卡账单（还：%s，仅需：%s）" %
-                                 (user_data['username'], amount,
-                                  15000 - user_data['credit limit']))
+                               (user_data['username'], amount,
+                                15000 - user_data['credit limit']))
     else:
         operation_log.info(
             "%s储蓄卡额度不足（剩%s，需%s），请先存款" % (user_data['username'],
@@ -198,12 +203,12 @@ def deposit(amount):
     user_data['balance'] += amount  # 存款至储蓄卡余额
     bank_db.update(id, {'balance': user_data['balance']})  # 保存变动
     operation_log.info("%s存款了：%s，现余额:%s" % (user_data['username'], amount,
-                                              user_data['balance']))
+                                            user_data['balance']))
 
 
 @login
 def transfer(amount, username):
-    """ 储蓄卡转账 """
+    """ 储蓄卡用户名之间转账 """
     global user_data
     id = user_data['id']
 

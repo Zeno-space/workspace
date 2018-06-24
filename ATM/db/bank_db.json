@@ -4,7 +4,7 @@
         "password": "123",
         "status": 3,
         "balance": 260402.15,
-        "credit limit": 14404.6,
+        "credit limit": 1294.6,
         "id": "1"
     },
     "2": {
@@ -12,6 +12,6 @@
         "password": "123",
         "status": 3,
         "balance": 23112689,
-        "credit limit": 15000
+        "credit limit": 2846
     }
 }

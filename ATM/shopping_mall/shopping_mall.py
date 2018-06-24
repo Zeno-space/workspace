@@ -40,8 +40,7 @@ def shopping(balance):
             print("%s、%-8s  %-5s" % (i + 1, product['name'], product['price']))
 
         # 根据代码购买商品
-        choice = input("\n输入想买的商品编号;" +
-                       "\n输入“q”或“退出”退出商品添加,进入购物车:\n>>> ")
+        choice = input("\n输入想买的商品编号;" + "\n输入“b”或“返回”退出商品添加,进入购物车:\n>>> ")
         if choice.isdigit():
             choice = int(choice) - 1
             if choice >= 0 and choice < len(goods):
@@ -69,5 +68,5 @@ def shopping(balance):
             else:
                 print("商品不存在,请重新选择")
 
-        elif choice in ('q', '退出'):  # 输入"q"或"退出"结束购物
+        elif choice in ('b', '返回'):  # 输入"b"或"返回"结束购物
             break

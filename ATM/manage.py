@@ -76,6 +76,7 @@ def transfer():
 
 def shopping():
     shopping_mall.shopping(bank.user_data['credit limit'])
+    cart()
     return True
 
 
@@ -87,12 +88,26 @@ def cart():
     for product in shopping_cart:
         print("%-6s  %-4s    %-4d" % (product, shopping_cart[product]['price'],
                                       shopping_cart[product]['count']))
-    print("总价值为：%s"% shopping_mall.total_value)
+    print("总价值为：%s" % shopping_mall.total_value)
+    print("当前信用卡剩余额度为%s" % bank.user_data['credit limit'])
 
     return True
 
 
 def pay():
+    from copy import deepcopy
+    _shopping_cart = deepcopy(shopping_mall.shopping_cart)
+    for product in _shopping_cart:
+        price = _shopping_cart[product]['price']
+        number = _shopping_cart[product]['count']
+        result = bank.consume(product, price, number)
+        if result:
+            del shopping_mall.shopping_cart[product]
+        else:
+            print("%s,数量：%s消费失败！\n" % (product, number))
+    shopping_mall.total_value = 0
+    print("当前信用卡剩余额度为%s" % bank.user_data['credit limit'])
+
     return True
 
 
@@ -118,10 +133,7 @@ menu_logged_in = {
         'transfer': {},
     },
     'shopping_mall': {
-        'cart': {
-            'pay': {}
-        },
-        'comsume_log': {}
+        'pay': {},
     }
 }
 menu_main = {
