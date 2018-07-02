@@ -11,8 +11,8 @@ Desktop.ini
 dist
 build
 
+# My configurations:
+
 # vscode
 .vscode/*
 ATM/.vscode/*
-
-# My configurations:
