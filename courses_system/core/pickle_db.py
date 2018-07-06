@@ -10,7 +10,6 @@ class PickleDb(object):
         self.id_index = []
         self._unique_tmp = {}
         self._data = {}
-
         self.load_db()
 
     def _update_index(self):
@@ -50,7 +49,6 @@ class PickleDb(object):
         data, db_path = self._data, self.db_path
 
         with open(db_path, 'wb') as db_file:
-            print(data)
             pickle.dump(data, db_file)
 
         self._update_index()

@@ -2,25 +2,25 @@ from core.pickle_db import PickleDb
 from conf.setting import USER_DB_PATH
 from core.logger import debug_log
 
+
 class Auth:
     menu = {
-        '注册':'registe',
-        '登录':'login',
-        '登出':'logout',
-        }
-        
+        '注册': 'registe',
+        '登录': 'login',
+        '登出': 'logout',
+    }
+
     def __init__(self):
-        self.user_db = PickleDb(USER_DB_PATH, ['name'])
+        self.user_db = PickleDb(USER_DB_PATH, ['username'])
         self.user_data = {}
         """ 
         {
-            'name': '',
+            'username': '',
             'password': '',
             'role': '',
             'status': 3
         }
         """
-
 
     def authenticate(self):
         user_db = self.user_db
@@ -45,7 +45,8 @@ class Auth:
             else:
                 return 1, '%s %s' % (username, '账户已被冻结,登录其他账户或输入新用户名注册\n')
         else:
-            cmd = input('用户名不存在,是否注册该账户\n' + '1、是\n' + '2、否\n' + '>>> ').strip()
+            cmd = input('用户名不存在,是否注册该账户\n' + '1、是\n' + '2、否\n' +
+                        '>>> ').strip()
             if cmd in ('1', '是', 'y', 'yes'):  # 注册新用户
                 self.registe(username, password)
 
@@ -65,6 +66,7 @@ class Auth:
                 return func(*args, **kwargs)
 
             return inner
+
         return outer
 
     def logout(self):
@@ -76,10 +78,10 @@ class Auth:
 
         return True
 
-
-    def registe(self,username, password):
-        username = input('用户名：')
-        password = input('密码：')
+    def registe(self, username='', password=''):
+        if not username:
+            username = input('用户名：')
+            password = input('密码：')
 
         user_db = self.user_db
         user_data = self.user_data
